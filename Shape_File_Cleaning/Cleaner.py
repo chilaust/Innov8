@@ -1,7 +1,6 @@
 import geopandas as gpd
 import os
 
-# import zipfile
 
 def clean_shapefile(shapefile, cleaned_folder):
     # reads file in and checks for errors
@@ -58,11 +57,7 @@ def main():
     shapefiles = []
     for root, dirs, files in os.walk(folder_path):
         for file in files:
-    # possible improvement to work with .zip files (not finished)
-            # if file.endswith('.zip'):
-            #     zip_file_path = os.path.join(root, file)
-            #     with zipfile.ZipFile(zip_file_path, 'r') as zip_ref:
-            #         zip_ref.extractall(os.path.join(root, file[:-4]))
+
             if file.endswith(".shp"):
                 if file not in shapefiles:
                     shapefiles.append(os.path.join(root, file))
@@ -94,7 +89,4 @@ def main():
 if __name__ == "__main__":
     main()
 
-
-# POSSIBLE IMPROVEMENTS:
-# Let it handle .zip files in line
 
